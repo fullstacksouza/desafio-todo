@@ -1,7 +1,4 @@
 import {
-  CREATE_TODO_FAIL,
-  CREATE_TODO_START,
-  CREATE_TODO_SUCCESS,
   SHOW_NEW_TODO_FORM,
   CLOSE_NEW_TODO_FORM,
   SHOW_EDIT_TODO_FORM,
@@ -51,11 +48,6 @@ export default function todoReducer(state = INITIAL_STATE, { type, payload }) {
           }
           return item;
         })
-      };
-    case CREATE_TODO_SUCCESS:
-      return {
-        ...state,
-        todos: [...state.todos, { id: 1, title: 1, description: 2 }]
       };
     case CLOSE_NEW_TODO_FORM:
       return {

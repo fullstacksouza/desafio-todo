@@ -11,22 +11,26 @@ import {
 } from "./styles";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-// import * as userActions from "../../actions/userActions";
+import * as userActions from "../../actions/userActions";
 class Form extends Component {
   state = {
-    username: "",
+    email: "",
     password: ""
   };
-
+  componentDidMount() {
+    console.log("FORM", this.props);
+  }
   handleSubmit = () => {
-    const { auth } = this.props;
-    if (!this.state.username || !this.state.password) {
+    const { authUser } = this.props;
+    if (!this.state.email || !this.state.password) {
       return;
     }
-    auth(this.state);
+    console.log(this.state);
+    authUser(this.state);
   };
   render() {
-    const { user } = this.props;
+    const { user, navigation } = this.props;
+
     return (
       <Container behavior="padding">
         <TextInput
@@ -34,7 +38,7 @@ class Form extends Component {
           value={this.state.username}
           placeholder="Digite seu email"
           textContentType="emailAddress"
-          onChangeText={text => this.setState({ username: text })}
+          onChangeText={text => this.setState({ email: text })}
         />
 
         <TextInput
@@ -56,8 +60,11 @@ class Form extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.userReducer
+  user: state.user
 });
-// const mapDispatchToProps = dispatch =>
-//   bindActionCreators(userActions, dispatch);
-export default connect(mapStateToProps)(Form);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(userActions, dispatch);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Form);
