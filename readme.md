@@ -8,10 +8,10 @@
 
 <p> efetuar login com o usuario demo@todo e senha demo</p>
 
-<h1>Criar Todo </h1>
+<h2>Criar Todo </h2>
 
 <p>Clicar no fab com icone '+' no canto direito da tela</p>
 
-<h1>Editar/ Excluir Todo</h1>
+<h2>Editar/ Excluir Todo</h2>
 
 Deslizar com o dedo para esquerda sobre a todo que deseja editar/excluir
